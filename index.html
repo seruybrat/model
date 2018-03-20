@@ -26,7 +26,6 @@
 	</head>
 
 	<body>
-		hello
 
 		<script src="three.js"></script>
 		<script src="OBJLoader.js"></script>
@@ -71,7 +70,10 @@
 				loader.load( 'cup.obj', function ( object ) {
 					object.traverse( function ( child ) {
 						if ( child instanceof THREE.Mesh ) {
+							console.log('child', child);
 							child.material.map = texture;
+							child.geometry.buffersNeedUpdate;
+							child.geometry.uvsNeedUpdate;
 						}
 					} );
 					object.position.y = - 95;
